@@ -1,11 +1,11 @@
-class EventController < ApplicationController
+class EventsController < ApplicationController
 
     def new
-        @event = event.new
+        @event = Event.new
     end
 
     def create
-        @event = event.new event_prams
+        @event = Event.new event_params
         if @event.save
             flash[:notice] = 'Event created successfully'
         else    
@@ -14,11 +14,11 @@ class EventController < ApplicationController
     end
 
     def show
-       @event = event.find params[:id]
+       @event = Event.find params[:id]
     end
 
     def index
-        @event = event.all
+        @event = Event.all
     end
 
     def edit
@@ -29,5 +29,10 @@ class EventController < ApplicationController
         @event.destroy
     end
 
+    private
+
+    def event_params
+        params.require(:event).permit(:title, :description, :price, :location, :participants, :start_time, :image)
+    end 
 
 end
