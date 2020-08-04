@@ -1,6 +1,6 @@
 class AddParticipantsAndStartTime < ActiveRecord::Migration[6.0]
   def change
-    add_column :events, :participants, integer
-    add_column :events, :start_time, datetime
+    add_column :events, :participants, :Integer
+    add_column :events, :start_time, :datetime
   end
 end
