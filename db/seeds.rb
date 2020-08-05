@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Event.destroy_all
+
+50.times do
+  Event.create(
+  title: Faker::Name.name
+  description: Faker::Lorem.word
+  price: Faker::Number.number
+  )
+end

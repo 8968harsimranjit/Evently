@@ -4,11 +4,9 @@ class Event < ApplicationRecord
 
     validates :title, presence: true, uniqueness: true
     validates :description, presence: true, length: { minimum: 100 }
-    validates :location, presence: true
     validates :price, presence: true
-    validates :image, presence: true
     validates :participants, presence: true, numericality: {less_than: 21}
-    validates :start_time, presence: true
+  
     
     private
 
