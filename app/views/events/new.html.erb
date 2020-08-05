@@ -1,0 +1,21 @@
+<h1>Create new event</h1>
+<% if @event.errors.present? %>
+  <p>
+    <%= @event.errors.full_messages.join(', ')%>
+  </p>
+<% end %>
+<%= form_with model: @event, local: true do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description%>
+  </div>
+  <div>
+    <%= f.label :price %>
+    <%= f.text_area :price%>
+  </div>
+  <%= f.submit "Submit" %>
+<% end %> 
